@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SelectPuzzleScript : MonoBehaviour
 {
+    private SelectLevelScript selectLevelScript;
+
     [SerializeField]
     private GameObject selectPuzzleMenuPanel;
     [SerializeField]
@@ -16,12 +18,15 @@ public class SelectPuzzleScript : MonoBehaviour
     /// Start is called on the frame when a script is enabled just before any of the Update methods is called the first time.
     void Start()
     {
+        selectLevelScript = GameObject.Find("Puzzle Level Controller").GetComponent<SelectLevelScript>();
         selectPuzzleMenuAnimator = selectPuzzleMenuPanel.GetComponent<Animator>();
         selectPuzzleLevelAnimator = selectPuzzleLevelPanel.GetComponent<Animator>();
     }
 
     public void SelectedPuzzle() {
         selectedPuzzle = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name;
+
+        selectLevelScript.SetSelectedPuzzle(selectedPuzzle);
 
         StartCoroutine(ShowPuzzleLevelSelectMenu());
     }
