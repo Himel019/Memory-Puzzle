@@ -56,6 +56,8 @@
      <Compile Include="Assets\Scripts\Puzzle Game Controller Scripts\CreatePuzzleButtonsAndAnimators.cs" />
      <Compile Include="Assets\Scripts\Puzzle Game Controller Scripts\LayoutPuzzleButtons.cs" />
      <Compile Include="Assets\Scripts\Puzzle Game Controller Scripts\LoadPuzzleGame.cs" />
+     <Compile Include="Assets\Scripts\Puzzle Game Controller Scripts\PuzzleGameManager.cs" />
+     <Compile Include="Assets\Scripts\Puzzle Game Controller Scripts\SetupPuzzleGame.cs" />
      <Compile Include="Assets\Scripts\Puzzle Level Controller Scripts\SelectLevelScript.cs" />
      <Compile Include="Assets\Scripts\Puzzle Menu Controller Scripts\SelectPuzzleScript.cs" />
      <Compile Include="Assets\Scripts\Puzzle Menu Controller Scripts\SettingsController.cs" />

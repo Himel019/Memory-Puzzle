@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SelectLevelScript : MonoBehaviour
 {
+    private PuzzleGameManager puzzleGameManager;
     private LoadPuzzleGame loadPuzzleGame;
 
     [SerializeField]
@@ -19,6 +20,7 @@ public class SelectLevelScript : MonoBehaviour
     void Start()
     {
         loadPuzzleGame = GameObject.Find("Puzzle Game Controller").GetComponent<LoadPuzzleGame>();
+        puzzleGameManager = GameObject.Find("Puzzle Game Controller").GetComponent<PuzzleGameManager>();
         selectPuzzleMenuAnimator = selectPuzzleMenuPanel.GetComponent<Animator>();
         selectPuzzleLevelAnimator = selectPuzzleLevelPanel.GetComponent<Animator>();
     }
@@ -31,6 +33,7 @@ public class SelectLevelScript : MonoBehaviour
         int level = int.Parse(UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name);
         Debug.Log(level);
         loadPuzzleGame.LoadPuzzle(level, selectedPuzzle);
+        puzzleGameManager.SetLevel(level);
     }
 
     private IEnumerator ShowPuzzleSelectMenu() {

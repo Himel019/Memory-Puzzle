@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class LayoutPuzzleButtons : MonoBehaviour
 {
+    private SetupPuzzleGame setupPuzzleGame;
+
     [SerializeField]
     private Transform puzzleLevel1;
     [SerializeField]
@@ -34,9 +36,15 @@ public class LayoutPuzzleButtons : MonoBehaviour
     private int puzzleLevel;
     private string selectedPuzzle;
 
+    void Awake() {
+        setupPuzzleGame = GetComponent<SetupPuzzleGame>();
+    }
+
     public void LayoutButtons(int level, string puzzle) {
         this.puzzleLevel = level;
         this.selectedPuzzle = puzzle;
+
+        setupPuzzleGame.SetLevelAndPuzzle(level, selectedPuzzle);
 
         LayoutPuzzle();
     }
@@ -45,18 +53,23 @@ public class LayoutPuzzleButtons : MonoBehaviour
         switch(puzzleLevel) {
             case 0:
                 SetButtonList(level1Button, puzzleLevel1);
+                setupPuzzleGame.SetPuzzleButtonsAndAnimators(level1Button, level1Animator);
                 break;
             case 1:
                 SetButtonList(level2Button, puzzleLevel2);
+                setupPuzzleGame.SetPuzzleButtonsAndAnimators(level2Button, level2Animator);
                 break;
             case 2:
                 SetButtonList(level3Button, puzzleLevel3);
+                setupPuzzleGame.SetPuzzleButtonsAndAnimators(level3Button, level3Animator);
                 break;
             case 3:
                 SetButtonList(level4Button, puzzleLevel4);
+                setupPuzzleGame.SetPuzzleButtonsAndAnimators(level4Button, level4Animator);
                 break;
             case 4:
                 SetButtonList(level5Button, puzzleLevel5);
+                setupPuzzleGame.SetPuzzleButtonsAndAnimators(level5Button, level5Animator);
                 break;
         }
     }

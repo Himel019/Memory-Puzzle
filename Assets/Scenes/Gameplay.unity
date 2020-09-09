@@ -3102,6 +3102,8 @@ GameObject:
   - component: {fileID: 802044190}
   - component: {fileID: 802044192}
   - component: {fileID: 802044193}
+  - component: {fileID: 802044194}
+  - component: {fileID: 802044195}
   m_Layer: 0
   m_Name: Puzzle Game Controller
   m_TagString: Untagged
@@ -3181,6 +3183,31 @@ MonoBehaviour:
   - {fileID: 21300004, guid: 1273004444505f74b8d5c9acdce59790, type: 3}
   - {fileID: 21300008, guid: 1273004444505f74b8d5c9acdce59790, type: 3}
   - {fileID: 21300002, guid: 1273004444505f74b8d5c9acdce59790, type: 3}
+--- !u!114 &802044194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802044189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4677e17250f614145a310d96d26f2e54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &802044195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802044189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fa463bc7ab6fc448bc60b2359c0d4bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gamePuzzleSprites: []
 --- !u!1 &807106807
 GameObject:
   m_ObjectHideFlags: 0
