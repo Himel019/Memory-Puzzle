@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LoadPuzzleGame : MonoBehaviour
 {
+    private PuzzleGameManager puzzleGameManager;
     private LayoutPuzzleButtons layoutPuzzleButtons;
 
     [SerializeField]
@@ -33,9 +34,12 @@ public class LoadPuzzleGame : MonoBehaviour
     private int puzzleLevel;
     private string selectedPuzzle;
 
+    private List<Animator> animatorList;
+
     /// Start is called on the frame when a script is enabled just before any of the Update methods is called the first time.
     void Start()
     {
+        puzzleGameManager = GetComponent<PuzzleGameManager>();
         layoutPuzzleButtons = GetComponent<LayoutPuzzleButtons>();
         puzzleLevelSelectAnimator = puzzleLevelSelectPanel.GetComponent<Animator>();
         puzzleGamePanelAnimator1 = puzzleGamePanel1.GetComponent<Animator>();
@@ -71,6 +75,8 @@ public class LoadPuzzleGame : MonoBehaviour
     }
 
     public void BackToPuzzleLevelSelectMenu() {
+        animatorList = puzzleGameManager.ResetGameplay();
+
         switch(puzzleLevel) {
             case 0:
                 StartCoroutine(LoadPuzzleLevelSelectMenu(puzzleGamePanel1, puzzleGamePanelAnimator1));
@@ -95,6 +101,12 @@ public class LoadPuzzleGame : MonoBehaviour
         puzzleLevelSelectAnimator.Play("Slide In");
         puzzleGamePanelAnimator.Play("Slide Out");
         yield return new WaitForSeconds(0.40f);
+
+        foreach(Animator animator in animatorList) {
+            animator.Play("Idle");
+        }
+
+        yield return new WaitForSeconds(0.10f);
         puzzleGamePanel.SetActive(false);
     }
 
