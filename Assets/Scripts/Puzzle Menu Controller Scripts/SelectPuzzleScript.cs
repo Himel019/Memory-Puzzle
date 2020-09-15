@@ -6,6 +6,8 @@ public class SelectPuzzleScript : MonoBehaviour
 {
     private SelectLevelScript selectLevelScript;
     private PuzzleGameManager puzzleGameManager;
+    private LevelLocker levelLocker;
+    private StarsLocker starsLocker;
 
     [SerializeField]
     private GameObject selectPuzzleMenuPanel;
@@ -21,14 +23,20 @@ public class SelectPuzzleScript : MonoBehaviour
     {
         puzzleGameManager = GameObject.Find("Puzzle Game Controller").GetComponent<PuzzleGameManager>();
         selectLevelScript = GameObject.Find("Puzzle Level Controller").GetComponent<SelectLevelScript>();
+        levelLocker = GameObject.Find("Puzzle Level Controller").GetComponent<LevelLocker>();
+        starsLocker = GameObject.Find("Puzzle Level Controller").GetComponent<StarsLocker>();
         selectPuzzleMenuAnimator = selectPuzzleMenuPanel.GetComponent<Animator>();
         selectPuzzleLevelAnimator = selectPuzzleLevelPanel.GetComponent<Animator>();
     }
 
     public void SelectedPuzzle() {
+        starsLocker.DeactivateStars(); 
+
         selectedPuzzle = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name;
 
         puzzleGameManager.SetSelectedPuzzle(selectedPuzzle);
+
+        levelLocker.CheckWhichLevelsAreUnlocked(selectedPuzzle);
 
         selectLevelScript.SetSelectedPuzzle(selectedPuzzle);
 

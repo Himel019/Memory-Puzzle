@@ -162,7 +162,7 @@ public class PuzzleGameSaver : MonoBehaviour
                     transportPuzzleLevels[unlockNextLevel] = true;
                 }
                 break;
-            case "Fruit Puzzle Button":
+            case "Fruits Puzzle Button":
                 unlockNextLevel = level + 1;
                 fruitPuzzleLevelStars[level] = stars;
 

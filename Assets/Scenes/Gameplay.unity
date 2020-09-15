@@ -1655,6 +1655,8 @@ GameObject:
   m_Component:
   - component: {fileID: 416531684}
   - component: {fileID: 416531683}
+  - component: {fileID: 416531685}
+  - component: {fileID: 416531686}
   m_Layer: 0
   m_Name: Puzzle Level Controller
   m_TagString: Untagged
@@ -1690,6 +1692,65 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &416531685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416531682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c99a9000c5c08c4bbaeb8a9cb93a551, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelStarsHolders:
+  - {fileID: 28375473}
+  - {fileID: 634172426}
+  - {fileID: 491965680}
+  - {fileID: 1827224586}
+  - {fileID: 286019724}
+  levelPadlocks:
+  - {fileID: 1158043705}
+  - {fileID: 192712910}
+  - {fileID: 286431964}
+  - {fileID: 656262979}
+  - {fileID: 1013328363}
+--- !u!114 &416531686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416531682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cddfca2adcee85c45a086bbdc53e0428, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level1Stars:
+  - {fileID: 1301749458}
+  - {fileID: 434727797}
+  - {fileID: 1063787179}
+  level2Stars:
+  - {fileID: 333848971}
+  - {fileID: 561183560}
+  - {fileID: 1501156166}
+  level3Stars:
+  - {fileID: 735010641}
+  - {fileID: 1446805849}
+  - {fileID: 273269045}
+  level4Stars:
+  - {fileID: 1216606617}
+  - {fileID: 649887465}
+  - {fileID: 1276708100}
+  level5Stars:
+  - {fileID: 643861739}
+  - {fileID: 1309061635}
+  - {fileID: 708731302}
+  candyPuzzleLevelStars: 
+  transportPuzzleLevelStars: 
+  fruitPuzzleLevelStars: 
 --- !u!1 &421481770
 GameObject:
   m_ObjectHideFlags: 0

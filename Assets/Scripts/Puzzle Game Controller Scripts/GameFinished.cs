@@ -70,17 +70,19 @@ public class GameFinished : MonoBehaviour
 
         if(stars == 1){
             star1Animator.Play("Fade Out");
+            textAnimator.Play("Fade Out");
         }
         if(stars == 2){
             star1Animator.Play("Fade Out");
             star2Animator.Play("Fade Out");
+            textAnimator.Play("Fade Out");
         }
         if(stars == 3){
             star1Animator.Play("Fade Out");
             star2Animator.Play("Fade Out");
             star3Animator.Play("Fade Out");
+            textAnimator.Play("Fade Out");
         }
-        textAnimator.Play("Fade Out");
 
         yield return new WaitForSeconds(1f);
 

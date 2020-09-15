@@ -6,6 +6,7 @@ public class SelectLevelScript : MonoBehaviour
 {
     private PuzzleGameManager puzzleGameManager;
     private LoadPuzzleGame loadPuzzleGame;
+    private LevelLocker levelLocker;
 
     [SerializeField]
     private GameObject selectPuzzleMenuPanel;
@@ -16,11 +17,14 @@ public class SelectLevelScript : MonoBehaviour
 
     private string selectedPuzzle;
 
+    private bool[] puzzle;
+
     /// Start is called on the frame when a script is enabled just before any of the Update methods is called the first time.
     void Start()
     {
         loadPuzzleGame = GameObject.Find("Puzzle Game Controller").GetComponent<LoadPuzzleGame>();
         puzzleGameManager = GameObject.Find("Puzzle Game Controller").GetComponent<PuzzleGameManager>();
+        levelLocker = GetComponent<LevelLocker>();
         selectPuzzleMenuAnimator = selectPuzzleMenuPanel.GetComponent<Animator>();
         selectPuzzleLevelAnimator = selectPuzzleLevelPanel.GetComponent<Animator>();
     }
@@ -31,9 +35,13 @@ public class SelectLevelScript : MonoBehaviour
 
     public void SelectPuzzleLevel() {
         int level = int.Parse(UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name);
-        Debug.Log(level);
-        loadPuzzleGame.LoadPuzzle(level, selectedPuzzle);
-        puzzleGameManager.SetLevel(level);
+        puzzle = levelLocker.GetPuzzleLevels(selectedPuzzle);
+        
+        if(puzzle[level]) {
+            Debug.Log(level);
+            loadPuzzleGame.LoadPuzzle(level, selectedPuzzle);
+            puzzleGameManager.SetLevel(level);
+        }
     }
 
     private IEnumerator ShowPuzzleSelectMenu() {

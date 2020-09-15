@@ -6,6 +6,7 @@ public class LoadPuzzleGame : MonoBehaviour
 {
     private PuzzleGameManager puzzleGameManager;
     private LayoutPuzzleButtons layoutPuzzleButtons;
+    private LevelLocker levelLocker;
 
     [SerializeField]
     private GameObject puzzleLevelSelectPanel;
@@ -41,6 +42,7 @@ public class LoadPuzzleGame : MonoBehaviour
     {
         puzzleGameManager = GetComponent<PuzzleGameManager>();
         layoutPuzzleButtons = GetComponent<LayoutPuzzleButtons>();
+        levelLocker = GameObject.Find("Puzzle Level Controller").GetComponent<LevelLocker>();
         puzzleLevelSelectAnimator = puzzleLevelSelectPanel.GetComponent<Animator>();
         puzzleGamePanelAnimator1 = puzzleGamePanel1.GetComponent<Animator>();
         puzzleGamePanelAnimator2 = puzzleGamePanel2.GetComponent<Animator>();
@@ -76,6 +78,8 @@ public class LoadPuzzleGame : MonoBehaviour
 
     public void BackToPuzzleLevelSelectMenu() {
         animatorList = puzzleGameManager.ResetGameplay();
+
+        levelLocker.CheckWhichLevelsAreUnlocked(selectedPuzzle);
 
         switch(puzzleLevel) {
             case 0:

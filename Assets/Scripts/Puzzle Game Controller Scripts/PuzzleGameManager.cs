@@ -6,6 +6,7 @@ using UnityEngine;
 public class PuzzleGameManager : MonoBehaviour
 {
     private GameFinished gameFinished;
+    private PuzzleGameSaver puzzleGameSaver;
 
     private List<Button> puzzleButtons = new List<Button>();
     private List<Animator> puzzleButtonAnimators = new List<Animator>();
@@ -27,6 +28,7 @@ public class PuzzleGameManager : MonoBehaviour
 
     void Start() {
         gameFinished = GetComponent<GameFinished>();
+        puzzleGameSaver = GameObject.Find("Puzzle Game Saver").GetComponent<PuzzleGameSaver>();
     }
 
     public void PickAPuzzle() {
@@ -110,12 +112,15 @@ public class PuzzleGameManager : MonoBehaviour
         if(countTryGuess < howManyGuesses) {
             gameFinished.ShowGameFinishedPanel(3);
             totalStar = 3;
+            puzzleGameSaver.Save(level, selectedPuzzle, totalStar);
         } else if(countTryGuess < (howManyGuesses + 2)) {
             gameFinished.ShowGameFinishedPanel(2);
             totalStar = 2;
+            puzzleGameSaver.Save(level, selectedPuzzle, totalStar);
         } else {
             gameFinished.ShowGameFinishedPanel(1);
             totalStar = 1;
+            puzzleGameSaver.Save(level, selectedPuzzle, totalStar);
         }
     }
 
