@@ -66,6 +66,7 @@
      <Compile Include="Assets\Scripts\Puzzle Level Controller Scripts\StarsLocker.cs" />
      <Compile Include="Assets\Scripts\Puzzle Menu Controller Scripts\SelectPuzzleScript.cs" />
      <Compile Include="Assets\Scripts\Puzzle Menu Controller Scripts\SettingsController.cs" />
+     <Compile Include="Assets\Scripts\Puzzle Music Controller Scripts\PuzzleMusicController.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>E:/Unity/Memory Master/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>

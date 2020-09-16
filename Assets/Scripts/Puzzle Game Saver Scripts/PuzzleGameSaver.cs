@@ -81,7 +81,7 @@ public class PuzzleGameSaver : MonoBehaviour
         }
     }
 
-    private void SaveGameData() {
+    public void SaveGameData() {
         FileStream file = null;
 
         try {
@@ -153,6 +153,7 @@ public class PuzzleGameSaver : MonoBehaviour
                 if(unlockNextLevel < candyPuzzleLevels.Length) {
                     candyPuzzleLevels[unlockNextLevel] = true;
                 }
+                SaveGameData();
                 break;
             case "Transport Puzzle Button":
                 unlockNextLevel = level + 1;
@@ -161,6 +162,7 @@ public class PuzzleGameSaver : MonoBehaviour
                 if(unlockNextLevel < transportPuzzleLevels.Length) {
                     transportPuzzleLevels[unlockNextLevel] = true;
                 }
+                SaveGameData();
                 break;
             case "Fruits Puzzle Button":
                 unlockNextLevel = level + 1;
@@ -169,6 +171,7 @@ public class PuzzleGameSaver : MonoBehaviour
                 if(unlockNextLevel < fruitPuzzleLevels.Length) {
                     fruitPuzzleLevels[unlockNextLevel] = true;
                 }
+                SaveGameData();
                 break;
         }
     }
