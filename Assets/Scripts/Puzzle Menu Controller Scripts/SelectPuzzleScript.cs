@@ -6,6 +6,7 @@ public class SelectPuzzleScript : MonoBehaviour
 {
     private SelectLevelScript selectLevelScript;
     private PuzzleGameManager puzzleGameManager;
+    private SettingsController settingsController;
     private LevelLocker levelLocker;
     private StarsLocker starsLocker;
 
@@ -21,6 +22,7 @@ public class SelectPuzzleScript : MonoBehaviour
     /// Start is called on the frame when a script is enabled just before any of the Update methods is called the first time.
     void Start()
     {
+        settingsController = GameObject.Find("Puzzle Menu Controller").GetComponent<SettingsController>();
         puzzleGameManager = GameObject.Find("Puzzle Game Controller").GetComponent<PuzzleGameManager>();
         selectLevelScript = GameObject.Find("Puzzle Level Controller").GetComponent<SelectLevelScript>();
         levelLocker = GameObject.Find("Puzzle Level Controller").GetComponent<LevelLocker>();
@@ -30,6 +32,8 @@ public class SelectPuzzleScript : MonoBehaviour
     }
 
     public void SelectedPuzzle() {
+        settingsController.CloseSettingsPanel();
+
         starsLocker.DeactivateStars(); 
 
         selectedPuzzle = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name;

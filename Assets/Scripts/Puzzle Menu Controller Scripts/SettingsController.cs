@@ -28,7 +28,9 @@ public class SettingsController : MonoBehaviour
     }
 
     public void CloseSettingsPanel() {
-        StartCoroutine(CloseSetting());
+        if(settingsPanel.activeInHierarchy){
+            StartCoroutine(CloseSetting());
+        }
     }
 
     private IEnumerator CloseSetting() {
